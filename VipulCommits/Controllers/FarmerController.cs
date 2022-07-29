@@ -54,6 +54,7 @@ namespace SchemeForFarmers_BackEnd_WebAPI.Controllers
         [HttpPost]
         public JsonResult Post(Farmer f)
         {
+            //check for varchar and int data types
             string query = @"
                     insert into dbo.Farmer 
                     (email,password,name,contact,address,city,state,pincode,land_area,land_address,land_pincode,account_no,iifc,adhar,pan,certificate)
@@ -73,13 +74,13 @@ namespace SchemeForFarmers_BackEnd_WebAPI.Controllers
                     ,
                     '" + f.State + @"'
                     ,
-                    '" + f.pincode + @"'
+                    " + f.pincode + @"
                     ,
-                    '" + f.landArea + @"'
+                    " + f.landArea + @"
                     ,
                      '" + f.landAddress + @"'
                       ,
-                    '" + f.landPincode + @"'
+                    " + f.landPincode + @" 
                                               ,
                     '" + f.accNo + @"'
                     ,
